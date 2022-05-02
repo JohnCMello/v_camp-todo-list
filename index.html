@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/assets/css/styles.css">
+</head>
+<body>
+    
+    <div class="app-container">
+        <div class="app">
+            <header class="header">
+                <form 
+                    class="form"
+                    data-js="form"
+                >
+                    <div class="input-container">
+                        <input
+                            class="input--new-todo" 
+                            data-js="task-text"                         
+                            type="text"
+                            placeholder="Add new task"
+                        > 
+                        <input
+                            class="input--submit-todo"  
+                            data-js="add-task"
+                            type="submit" 
+                            value=">" 
+                        >
+                    </div>
+                </form>
+                <img src="./src/assets/images/menu.png" alt="">
+            </header>
+        
+            <main>
+                <div class="todos-container">
+                    <section class="todo-section todos__to-be-done">
+                        <ul 
+                            class="todos-list todos__to-be-done-list"
+                            data-js="to-be-done-list"
+                        >
+                            <li data-js="todo" class="todo">Go Shopping</li>
+                            <li data-js="todo" class="todo">Meditation</li>
+                            <li data-js="todo" class="todo">Short Exercise</li>
+                        </ul>
+                    </section>
+            
+                    <section class="todo-section todos__completed">
+                        <p class="completed-text">Completed</p>
+                        <ul 
+                            class="todos-list todos__completed--list"
+                            data-js="completed-list"
+                        >
+                            <li data-js="todo" class="todo completed">Reading</li>
+                        </ul>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script defer src="./src/assets/js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+:root{
+    --body-color:#E5E5E5;
+    --background: #38404B;
+    --text:#94ADCF;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Ubuntu Mono', monospace;
+}
+html{
+    font-size: 62.5%;
+}
+
+body{
+    display: flex;
+}
+
+.app-container{
+    background-color: var(--body-color);
+    height: 100vh;
+    width: 100vw;
+    max-width: 1280;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app{
+    background-color: var(--background);
+    border-radius: 3em;
+    color: var(--text);
+    height: 40rem;
+    width: 70rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header{
+    display: flex;
+    margin-top: 3rem;
+    height: 5rem;
+    width: 60rem;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.header > img{
+    height: 2rem;
+    position: absolute;
+    right: 0;
+    filter: invert(94%) sepia(54%) saturate(6645%) hue-rotate(171deg) brightness(83%) contrast(94%);
+}
+
+.input-container {
+    border-radius: .8rem;
+    box-shadow: inset 2px 2px 4px rgba(0,0,0,0.1),
+                    2px 2px 4px rgba(175, 175, 175, 0.1);
+    height: 3rem;
+    width: 35rem;
+    display: flex;
+}
+
+.input-container > input {
+    appearance: none;
+    background: none;
+    border: none;
+    color: var(--text);
+    outline: none;
+}
+
+::placeholder{
+    color: var(--text);
+}
+
+.input--new-todo{
+    width: 100%;
+    padding-left: 2rem;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.input--submit-todo{
+    padding-right: .5rem;
+    font-size: 1.5rem;
+}
+
+main {
+    margin: 2rem auto;
+    height: 65%;
+    width: 80%;
+}
+
+.todos-container{
+    height: 100%;
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+.todo-section{
+    height: 50%;
+    width: 100%;
+    padding: 2rem
+}
+
+.todos-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.todo{
+    border-radius: .8rem;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.1),
+    -2px -2px 4px rgba(175, 175, 175, 0.1);
+    padding: 1rem 1rem;
+    width: 45%;
+    margin: 1.4rem 0;
+    
+    list-style-type: none;
+}
+
+.todo::before{
+    display: inline-block;
+    content: '';
+    -webkit-border-radius: 0.375rem;
+    border-radius: 0.375rem;
+    height: .5rem;
+    width: .5rem;
+    margin-right: 1rem;
+    background-color: transparent;
+    border: 1.6px solid var(--text);
+    border-radius: 50%;
+}
+
+.completed{
+    box-shadow: inset 2px 2px 4px rgba(0,0,0,0.1),
+    2px 2px 4px rgba(175, 175, 175, 0.1);
+    text-decoration: line-through;
+    text-decoration-thickness: .16rem;
+}
+
+.completed::before{
+    background-color: var(--text);
+    height: .5rem;
+    width: .5rem;
+}
+
+.completed-text{
+    font-size: 1.6rem;
+}
+
+@media screen and (max-width: 38rem) {
+    .app{
+      height: 100vh;
+      width: 100vw;
+    }
+}
+
