@@ -1,7 +1,8 @@
 :root{
-    --body-color:#E5E5E5;
-    --background: #38404B;
-    --text:#94ADCF;
+    --clr-body:#E5E5E5;
+    --clr-background: #38404B;
+    --clr-placeholder: rgba(148, 173, 207, 0.7);
+    --clr-text: #94ADCF
 }
 
 *{
@@ -20,21 +21,20 @@ body{
 }
 
 .app-container{
-    background-color: var(--body-color);
+    background-color: var(--clr-body);
     height: 100vh;
     width: 100vw;
-    max-width: 1280;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .app{
-    background-color: var(--background);
-    border-radius: 3em;
-    color: var(--text);
-    height: 40rem;
-    width: 70rem;
+    background-color: var(--clr-background);
+    border-radius: 6.5em;
+    color: var(--clr-text);
+    height: 72rem;
+    width: 128rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,57 +42,62 @@ body{
 
 .header{
     display: flex;
-    margin-top: 3rem;
+    margin-top: 6rem;
     height: 5rem;
-    width: 60rem;
+    width: 80%;
     position: relative;
     align-items: center;
     justify-content: center;
 }
 
 .header > img{
-    height: 2rem;
+    height: 2.9rem;
+    width: 4rem;
     position: absolute;
     right: 0;
-    filter: invert(94%) sepia(54%) saturate(6645%) hue-rotate(171deg) brightness(83%) contrast(94%);
 }
 
 .input-container {
     border-radius: .8rem;
     box-shadow: inset 2px 2px 4px rgba(0,0,0,0.1),
                     2px 2px 4px rgba(175, 175, 175, 0.1);
-    height: 3rem;
-    width: 35rem;
+    height: 5.9rem;
+    width: 59rem;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.input-container > input {
+.input-container > input,
+.input-container > button {
     appearance: none;
     background: none;
     border: none;
-    color: var(--text);
+    color: var(--clr-text);
     outline: none;
 }
 
 ::placeholder{
-    color: var(--text);
+    color: var(--clr-placeholder);
 }
 
 .input--new-todo{
+    height: 100%;
     width: 100%;
-    padding-left: 2rem;
-    font-size: 1rem;
-    font-weight: 300;
+    padding-left: 4rem;
+    font-size: 1.8rem;
+    line-height: 1.8rem;
 }
 
 .input--submit-todo{
-    padding-right: .5rem;
-    font-size: 1.5rem;
+    padding-right: 2rem;
+    height: 1.6rem;
+    margin-bottom: .4rem;
 }
 
 main {
     margin: 2rem auto;
-    height: 65%;
+    height: 75%;
     width: 80%;
 }
 
@@ -100,12 +105,13 @@ main {
     height: 100%;
     width: 100%;
     font-size: 1.2rem;
+    margin-top: 7rem;
 }
 
 .todo-section{
     height: 50%;
     width: 100%;
-    padding: 2rem
+    padding: 2rem;
 }
 
 .todos-list{
@@ -115,14 +121,16 @@ main {
 }
 
 .todo{
-    border-radius: .8rem;
-    box-shadow: 2px 2px 4px rgba(0,0,0,0.1),
-    -2px -2px 4px rgba(175, 175, 175, 0.1);
-    padding: 1rem 1rem;
+    border-radius: 1.6rem;
+    box-shadow: -5px 5px 10px rgba(48, 54, 64, 0.2), 5px -5px 10px rgba(48, 54, 64, 0.2), -5px -5px 10px rgba(64, 74, 86, 0.9), 5px 5px 13px rgba(48, 54, 64, 0.9), inset 1px 1px 2px rgba(64, 74, 86, 0.3), inset -1px -1px 2px rgba(48, 54, 64, 0.5);
+    padding: 0 2rem;
     width: 45%;
-    margin: 1.4rem 0;
-    
+    height: 6rem;
+    margin-bottom:5rem;
     list-style-type: none;
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
 }
 
 .todo::before{
@@ -130,11 +138,11 @@ main {
     content: '';
     -webkit-border-radius: 0.375rem;
     border-radius: 0.375rem;
-    height: .5rem;
-    width: .5rem;
-    margin-right: 1rem;
+    height: 1.3rem;
+    width: 1.3rem;
+    margin-right: 2rem;
     background-color: transparent;
-    border: 1.6px solid var(--text);
+    border: .25rem solid var(--clr-text);
     border-radius: 50%;
 }
 
@@ -146,12 +154,13 @@ main {
 }
 
 .completed::before{
-    background-color: var(--text);
-    height: .5rem;
-    width: .5rem;
+    background-color: var(--clr-text);
+    height: 1.3rem;
+    width: 1.3rem;
 }
 
 .completed-text{
+    margin-bottom: 3rem;
     font-size: 1.6rem;
 }
 

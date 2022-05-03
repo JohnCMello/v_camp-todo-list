@@ -26,15 +26,18 @@
                             type="text"
                             placeholder="Add new task"
                         > 
-                        <input
+                        <button
                             class="input--submit-todo"  
                             data-js="add-task"
                             type="submit" 
-                            value=">" 
-                        >
+                        
+                        >   
+                            <img src="./src/assets/images/search-icon.png" alt="" srcset="">
+                    </button>
+
                     </div>
                 </form>
-                <img src="./src/assets/images/menu.png" alt="">
+                <img  src="./src/assets/images/menu-icon.png" alt="">
             </header>
         
             <main>
@@ -43,11 +46,7 @@
                         <ul 
                             class="todos-list todos__to-be-done-list"
                             data-js="to-be-done-list"
-                        >
-                            <li data-js="todo" class="todo">Go Shopping</li>
-                            <li data-js="todo" class="todo">Meditation</li>
-                            <li data-js="todo" class="todo">Short Exercise</li>
-                        </ul>
+                        ></ul>
                     </section>
             
                     <section class="todo-section todos__completed">
@@ -55,9 +54,7 @@
                         <ul 
                             class="todos-list todos__completed--list"
                             data-js="completed-list"
-                        >
-                            <li data-js="todo" class="todo completed">Reading</li>
-                        </ul>
+                        ></ul>
                     </section>
                 </div>
             </main>
