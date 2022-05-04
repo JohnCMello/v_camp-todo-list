@@ -68,9 +68,24 @@ const addTodos = (e)=>{
     createTodoElements(createTodoInfo())
 };
 
+const removeTodoFromLocalStorage = (todo) => {
+    const todos = getTodosFromLocalStorage();
+};
+
+const moveTodoToCompleted = (todo) => {
+    if(todo.matches(`.completed`)) $completedList.append(todo)
+};
+
+
 const toggleToDos = (e) =>{
     const todo = e.target;
+
+    if(todo.matches(`.completed`)) removeTodoFromLocalStorage(todo)
+
     todo.classList.toggle(`completed`)
+
+    moveTodoToCompleted(todo)
+
 };
 
 createTodoElementsFromLocalStorage()
