@@ -16,49 +16,49 @@ const createTodoInfo = () => {
         name: textValue, 
         status:`pending`
     };
-    return todoInfo
+
+    return todoInfo;
 }
 
+/**
+ * TODO ============
+ * Sort todos alphabetically 
+ * 
+ */
+const sortTodosAlphabetically = (todos) => {
+    // return todos.sort(todos.name);
+};
+
 const setTodosToLocalStorage = (todoInfo) =>{
-    const todos = getTodosFromLocalStorage();
-
-    todos.push(todoInfo)
-
-    localStorage.setItem("todo-list", JSON.stringify(todos))
+    let todos = getTodosFromLocalStorage();
+    
+    todos.push(todoInfo);
+   
+    localStorage.setItem("todo-list", JSON.stringify(todos));
 };
 
 const getTodosFromLocalStorage = () => JSON.parse(localStorage.getItem("todo-list")) || [];
 
-const createTodoElementsFromLocalStorage = () => {
-    
-    const todos = getTodosFromLocalStorage();
-    
-    todos.forEach( (todo) => {
-        const todo_el = document.createElement(`li`);
-
-        todo_el.dataset.js = `todo`;
-        todo_el.innerText = todo.name;
-        todo_el.addEventListener(`click`, toggleToDos)
-        todo_el.classList.add(`todo`, todo.status)
-        todo_el.setAttribute(`id`, todo._id)
-
-        $toBeDoneList.append(todo_el);
-    })
-};
-
-const createTodoElements = (todoInfo) =>{
-    const todoData = todoInfo
-
+const createDOMElement = (todo) =>{
     const todo_el = document.createElement(`li`);
 
     todo_el.dataset.js = `todo`;
-    todo_el.innerText = todoData.name;
-    todo_el.addEventListener(`click`, toggleToDos)
-    todo_el.classList.add(`todo`, todoData.status)
-    todo_el.setAttribute(`id`, todoData._id)
+    todo_el.innerText = todo.name;
+    todo_el.addEventListener(`click`, toggleToDos);
+    todo_el.classList.add(`todo`, todo.status);
+    todo_el.setAttribute(`id`, todo._id);
 
     $toBeDoneList.append(todo_el);
-    
+};
+
+const createTodoElementsFromLocalStorage = () => {
+    const todos = getTodosFromLocalStorage();
+    todos.forEach( todo => createDOMElement(todo))
+};
+
+const createTodoElements = (todoInfo) =>{
+    const todoData = todoInfo;
+    createDOMElement(todoData)
     $taskText.value = ``;
 };
 
@@ -68,8 +68,14 @@ const addTodos = (e)=>{
     createTodoElements(createTodoInfo())
 };
 
+const removeElementFromDOM = (todo) => {
+    todo.remove(todo)
+};
+
 const removeTodoFromLocalStorage = (todo) => {
     const todos = getTodosFromLocalStorage();
+    const temp = todos.filter( item => +item._id !== +todo.id)
+    localStorage.setItem("todo-list", JSON.stringify(temp));
 };
 
 const moveTodoToCompleted = (todo) => {
@@ -80,12 +86,13 @@ const moveTodoToCompleted = (todo) => {
 const toggleToDos = (e) =>{
     const todo = e.target;
 
-    if(todo.matches(`.completed`)) removeTodoFromLocalStorage(todo)
+    if(todo.matches(`.completed`)) {
+        removeTodoFromLocalStorage(todo)
+        removeElementFromDOM(todo)
+    }
 
     todo.classList.toggle(`completed`)
-
     moveTodoToCompleted(todo)
-
 };
 
 createTodoElementsFromLocalStorage()
