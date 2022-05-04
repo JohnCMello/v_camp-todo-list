@@ -1,5 +1,4 @@
 // DOM Elements ===============================================================
-
 const $taskText = document.querySelector(`[data-js=task-text]`);
 const $toDoForm = document.querySelector(`[data-js=form]`);
 const $toBeDoneList = document.querySelector(`[data-js=to-be-done-list]`);
@@ -33,7 +32,7 @@ const setTodosToLocalStorage = (todoInfo) =>{
     let todos = getTodosFromLocalStorage();
     
     todos.push(todoInfo);
-   
+    
     localStorage.setItem("todo-list", JSON.stringify(todos));
 };
 
@@ -101,4 +100,6 @@ createTodoElementsFromLocalStorage()
 
 // Add to-dos
 $toDoForm.addEventListener(`submit`, addTodos)
+window.addEventListener(`change`, removeTodoFromLocalStorage)
+
 
