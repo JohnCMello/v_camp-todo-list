@@ -11,31 +11,41 @@
     <link rel="stylesheet" href="./src/assets/css/styles.css">
 </head>
 <body>
-    <div class="app">
+    <div 
+        class="app"
+        data-js="app"
+    >
+    <div class="container">
+
         <header class="header">
             <form 
-                class="form"
-                data-js="form"
+            class="form"
+            data-js="form"
             >
-                <div class="input-container">
+            <div class="input-container">
+                
                     <input
                         class="input--new-todo" 
                         data-js="task-text"                         
                         type="text"
                         placeholder="Add new task"
-                    > 
-                    <button
+                        > 
+                        <button
                         class="input--submit-todo"  
                         data-js="add-task"
                         type="submit" 
-                    
-                    >   
+                        >   
                         <img src="./src/assets/images/search-icon.png" alt="" srcset="">
-                </button>
-
+                    </button>
+                    
                 </div>
             </form>
-            <img  src="./src/assets/images/menu-icon.png" alt="">
+            <div class="container-info-header" > 
+                <h1 class="mobile-heading">My Tasks</h1>
+                <img src="./src/assets/images/menu-icon.png" alt="" >
+            </div>
+            
+
         </header>
     
         <main>
@@ -47,8 +57,8 @@
                     ></ul>
                 </section>
         
+                <p class="completed-text">Completed</p>
                 <section class="todo-section todos__completed">
-                    <p class="completed-text">Completed</p>
                     <ul 
                         class="todos-list todos__completed--list"
                         data-js="completed-list"
@@ -57,7 +67,7 @@
             </div>
         </main>
     </div>
-
+    </div>
     <script defer src="./src/assets/js/index.js"></script>
 </body>
 </html>
