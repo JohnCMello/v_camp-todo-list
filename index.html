@@ -6,61 +6,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODO List</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./src/assets/css/styles.css">
 </head>
 <body>
-    
-    <div class="app-container">
-        <div class="app">
-            <header class="header">
-                <form 
-                    class="form"
-                    data-js="form"
-                >
-                    <div class="input-container">
-                        <input
-                            class="input--new-todo" 
-                            data-js="task-text"                         
-                            type="text"
-                            placeholder="Add new task"
+    <div 
+        class="app"
+        data-js="app"
+    >
+    <div class="container">
+
+        <header class="header">
+            <form 
+            class="form"
+            data-js="form"
+            >
+            <div class="input-container">
+                
+                    <input
+                        class="input--new-todo" 
+                        data-js="task-text"                         
+                        type="text"
+                        placeholder="Add new task"
                         > 
                         <button
-                            class="input--submit-todo"  
-                            data-js="add-task"
-                            type="submit" 
-                        
+                        class="input--submit-todo"  
+                        data-js="add-task"
+                        type="submit" 
                         >   
-                            <img src="./src/assets/images/search-icon.png" alt="" srcset="">
+                        <img src="./src/assets/images/search-icon.png" alt="" srcset="">
                     </button>
-
-                    </div>
-                </form>
-                <img  src="./src/assets/images/menu-icon.png" alt="">
-            </header>
-        
-            <main>
-                <div class="todos-container">
-                    <section class="todo-section todos__to-be-done">
-                        <ul 
-                            class="todos-list todos__to-be-done-list"
-                            data-js="to-be-done-list"
-                        ></ul>
-                    </section>
-            
-                    <section class="todo-section todos__completed">
-                        <p class="completed-text">Completed</p>
-                        <ul 
-                            class="todos-list todos__completed--list"
-                            data-js="completed-list"
-                        ></ul>
-                    </section>
+                    
                 </div>
-            </main>
-        </div>
-    </div>
+            </form>
+            <div class="container-info-header" > 
+                <h1 class="mobile-heading">My Tasks</h1>
+                <img src="./src/assets/images/menu-icon.png" alt="" >
+            </div>
+            
 
+        </header>
+    
+        <main>
+            <div class="todos-container">
+                <section class="todo-section todos__to-be-done">
+                    <ul 
+                        class="todos-list todos__to-be-done-list"
+                        data-js="to-be-done-list"
+                    ></ul>
+                </section>
+        
+                <p class="completed-text">Completed</p>
+                <section class="todo-section todos__completed">
+                    <ul 
+                        class="todos-list todos__completed--list"
+                        data-js="completed-list"
+                    ></ul>
+                </section>
+            </div>
+        </main>
+    </div>
+    </div>
     <script defer src="./src/assets/js/index.js"></script>
 </body>
 </html>

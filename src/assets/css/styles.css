@@ -7,8 +7,6 @@
 
 *{
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
     font-family: 'Ubuntu', sans-serif;
     font-family: 'Ubuntu Mono', monospace;
 }
@@ -17,27 +15,40 @@ html{
 }
 
 body{
-    display: flex;
-}
-
-.app-container{
     background-color: var(--clr-body);
-    height: 100vh;
-    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100vh;
+    margin: auto;
+    overflow: hidden;
 }
 
 .app{
     background-color: var(--clr-background);
     border-radius: 6.5em;
     color: var(--clr-text);
-    height: 72rem;
-    width: 128rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100vh;
+    max-width: 1280px;
+    min-width: 915px;
+    max-height: 720px;
+    width: 100vw;
+}
+
+.container{
+    height: 100%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+form {
+    width: 100%;
 }
 
 .header{
@@ -45,16 +56,22 @@ body{
     margin-top: 6rem;
     height: 5rem;
     width: 80%;
-    position: relative;
     align-items: center;
     justify-content: center;
 }
 
-.header > img{
+.mobile-heading{
+    display: none;
+}
+
+.container-info-header{
+    display: flex;
+    align-items: center;
+}
+
+.container-info-header > img{
     height: 2.9rem;
     width: 4rem;
-    position: absolute;
-    right: 0;
 }
 
 .input-container {
@@ -62,10 +79,10 @@ body{
     box-shadow: inset 2px 2px 4px rgba(0,0,0,0.1),
                     2px 2px 4px rgba(175, 175, 175, 0.1);
     height: 5.9rem;
-    width: 59rem;
-    display: flex;
+    max-width: 570px;
     align-items: center;
-    justify-content: space-between;
+    display: flex;
+    margin: 0 auto;
 }
 
 .input-container > input,
@@ -92,11 +109,11 @@ body{
 .input--submit-todo{
     padding-right: 2rem;
     height: 1.6rem;
-    margin-bottom: .4rem;
+    margin-bottom: .6rem;
 }
 
 main {
-    margin: 2rem auto;
+    margin: auto;
     height: 75%;
     width: 80%;
 }
@@ -105,19 +122,26 @@ main {
     height: 100%;
     width: 100%;
     font-size: 1.2rem;
-    margin-top: 7rem;
 }
 
 .todo-section{
-    height: 50%;
     width: 100%;
     padding: 2rem;
+    height: 45%;
+    overflow: scroll;
+    margin-top: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 0;  
+    background: transparent;  
 }
 
 .todos-list{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    padding: 0;
 }
 
 .todo{
@@ -131,10 +155,10 @@ main {
     display: flex;
     align-items: center;
     font-size: 1.8rem;
+    text-transform: capitalize;
 }
 
 .todo::before{
-    display: inline-block;
     content: '';
     -webkit-border-radius: 0.375rem;
     border-radius: 0.375rem;
@@ -160,14 +184,99 @@ main {
 }
 
 .completed-text{
-    margin-bottom: 3rem;
-    font-size: 1.6rem;
+    font-size: 2rem;
 }
 
-@media screen and (max-width: 38rem) {
+@media only screen and (max-width: 1024px) {
+
+}
+
+
+@media only screen and (max-width: 420px) {
+    
     .app{
-      height: 100vh;
-      width: 100vw;
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto;
+    max-height: inherit;
+    min-width: inherit;
+    }
+
+    .container{
+        margin-top: 60px;
+    }
+    
+    .header {
+        margin: 0;
+        height: 100px;
+        width: 300px;
+        flex-wrap: wrap-reverse;
+        justify-content: space-evenly;
+    }
+
+    .container-info-header{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    
+    }
+
+    .container-info-header img {
+        display: block;
+        width: 40px;
+        height: 29px;
+    }
+
+    .mobile-heading{
+        display: block;
+    }
+
+    .input-container{
+        width: 100%;
+    }
+
+    .input--new-todo{
+        width: 100%;
+    }
+
+    main{
+        margin: 0;
+        height: 700px;
+        width: 350px;
+    }
+    
+    .todos-container{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .todo-section{
+        padding: 10px;
+    }
+
+    .todos-list{
+        margin: 0;
+    }
+
+    .todo{
+        border-radius: 1.6rem;
+        box-shadow: -5px 5px 10px rgb(48 54 64 / 20%), 5px -5px 10px rgb(48 54 64 / 20%), -5px -5px 10px rgb(64 74 86 / 90%), 5px 5px 13px rgb(48 54 64 / 90%), inset 1px 1px 2px rgb(64 74 86 / 30%), inset -1px -1px 2px rgb(48 54 64 / 50%);
+        padding: 0 2rem;
+        width: 100%;
+        height: 6rem;
+        margin: 2rem 0;
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        font-size: 1.8rem;
+        text-transform: capitalize;
+    }
+
+    .todos__completed{
+        height: 210px;
     }
 }
 
